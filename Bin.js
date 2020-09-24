@@ -1,34 +1,30 @@
 class Bin {
-  constructor(x, y, width, height) {
-    var options = {
-      'restitution': 0.8,
-      'friction': 1.0,
-      'density': 1.0,
-      'isStatic': true
-    }
-    this.body = Bodies.rectangle(x, y, width, height, options);
-    this.width = width;
-    this.height = height;
-
-    // Matter.Body.setAngle(this.body, angle);
-
-    World.add(world, this.body);
+  constructor(x,y)
+  {
+  this.x=x;
+  this.y=y;
+  this.dustbinWidth=200;
+  this.dustbinHeight=213;
+  this.wallThickness=20;
+  
+  this.image=loadImage("bin.png")
+  this.bottomBody=Bodies.rectangle(this.x, this.y, this.dustbinWidth, this.wallThickness, {isStatic:true})
+  
   }
+
   display() {
 
-    var pos = this.body.position;
-    var angle = this.body.angle;
+    var pos = this.bottomBody.position;
+    var angle = this.bottomBody.angle;
 
     push();
 
     translate(pos.x, pos.y);
     rotate(angle);
-    rectMode(CENTER);
-    strokeWeight(4);
-    stroke("green");
-    fill(255);
-    rect(0, 0, this.width, this.height);
+    imageMode(CENTER);
+    rect(50, 50, this.width, this.height);
 
     pop();
   }
-};
+
+}

@@ -25,11 +25,13 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
+	
 	garbage = new Waste(50, 300, 20, 20);
 	ground = new Ground(400, 650, 800, 10);
-	bin1 = new Bin(600, 592, 20, 100);
-	bin2 = new Bin(700, 592, 20, 100);
-	bin3 = new Bin(650, 640, 100, 20);
+
+	bin1 = new Bin(600, 592);
+	bin2 = new Bin(700, 592);
+	bin3 = new Bin(650, 640);
 
 	
 	Engine.run(engine);
@@ -45,11 +47,6 @@ function draw() {
 	bin1.display();
 	bin2.display();
 	bin3.display();
-
-
-
-	image(binImage, 50, 80);
-	binImage.scale = 0.5;
 
 	drawSprites();
 
